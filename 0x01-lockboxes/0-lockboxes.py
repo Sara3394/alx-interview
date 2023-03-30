@@ -3,15 +3,10 @@
 
 
 def canUnlockAll(boxes):
-    """ceate a set to keep track of the boxes we've opened"""
-    unlocked = {0}
-    
-  
-    keys = set(boxes[0])
-
-    while keys:
-        box = keys.pop()
-        unlocked.add(box)
-        keys.update(boxes[box])
-
-    return len(unlocked) == len(boxes)
+    """canUnlockAll - determines if all the boxes can be opened"""
+    keys = [0]
+    for key in keys:
+        for box in boxes[key]:
+            if box not in keys and box < len(boxes):
+                keys.append(box)
+    return len(keys) == len(boxes)
