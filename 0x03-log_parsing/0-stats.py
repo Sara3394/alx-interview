@@ -1,54 +1,45 @@
 #!/usr/bin/python3
 
-"""This is a script which reads stdin line by line and computes metrics"""
+"""by line and computes metrics"""
 
 import sys
 
 
-def print_statistics(dicsc, size):
-    """ 
-    a function that takes two arguments 
-    """
-    
-    print("File size: {}".format(size))
-    for i in sorted(dicsc.keys()):
-        if dicsc[i] != 0:
-            print("{}: {}".format(i, dicsc[i]))
+def printsts(dic, size):
+    """ WWPrints information """
+    print("File size: {:d}".format(size))
+    for i in sorted(dic.keys()):
+        if dic[i] != 0:
+            print("{}: {:d}".format(i, dic[i]))
 
 
+sts = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
+       "404": 0, "405": 0, "500": 0}
+
+count = 0
 size = 0
-cnt = 0
-stas = {"200": 0,
-        "301": 0, 
-        "400": 0, 
-        "401": 0, 
-        "403": 0,
-        "404": 0, 
-        "405": 0, 
-        "500": 0}
-
 
 try:
     for line in sys.stdin:
-        if cnt != 0 and cnt % 10 == 0:
-            print_statistics(stas, size)
+        if count != 0 and count % 10 == 0:
+            printsts(sts, size)
 
-            statlist = line.split()
-            cnt += 1
+        stlist = line.split()
+        count += 1
 
-            try:
-               size += int(statlist[-1])
-            except:
-                pass
-            
-            try:
-                if statlist[-2] in stas:
-                    stas[statlist[-2]] += 1
-            except:
-                pass
-    print_statistics(stas, size)
+        try:
+            size += int(stlist[-1])
+        except:
+            pass
+
+        try:
+            if stlist[-2] in sts:
+                sts[stlist[-2]] += 1
+        except:
+            pass
+    printsts(sts, size)
 
 
 except KeyboardInterrupt:
-    print_statistics(stas, size)
+    printsts(sts, size)
     raise
