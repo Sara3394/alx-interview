@@ -5,15 +5,12 @@
 import sys
 
 
-def print_statistics(dic_status_codes, size):
-    """ a function that takes two arguments
-        dic_status_codes - status codes dict
-        size - total size of the file
-    """
+def print_statistics(dicsc, size):
+    """ a function that takes two arguments """
     print("File size: {}".format(size))
-    for i in sorted(dic_status_codes.keys()):
-        if dic_status_codes[i] != 0:
-            print("{}: {}".format(i, dic_status_codes[i]))
+    for i in sorted(dicsc.keys()):
+        if dicsc[i] != 0:
+            print("{}: {}".format(i, dicsc[i]))
 
 
 size = 0
