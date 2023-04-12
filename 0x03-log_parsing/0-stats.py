@@ -6,7 +6,10 @@ import sys
 
 
 def print_statistics(dicsc, size):
-    """ a function that takes two arguments """
+    """ 
+    a function that takes two arguments 
+    """
+    
     print("File size: {}".format(size))
     for i in sorted(dicsc.keys()):
         if dicsc[i] != 0:
