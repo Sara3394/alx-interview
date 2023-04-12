@@ -18,20 +18,20 @@ def print_statistics(dic_status_codes, size):
 
 size = 0
 cnt = 0
-dic_status_codes = {"200": 0,
-                    "301": 0, 
-                    "400": 0, 
-                    "401": 0, 
-                    "403": 0,
-                    "404": 0, 
-                    "405": 0, 
-                    "500": 0}
+status = {"200": 0,
+          "301": 0, 
+          "400": 0, 
+          "401": 0, 
+          "403": 0,
+          "404": 0, 
+          "405": 0, 
+          "500": 0}
 
 
 try:
     for line in sys.stdin:
         if cnt != 0 and cnt % 10 == 0:
-            print_statistics(dic_status_codes, size)
+            print_statistics(status, size)
 
             statlist = line.split()
             cnt += 1
@@ -40,14 +40,15 @@ try:
                size += int(statlist[-1])
             except:
                 pass
+            
             try:
-                if statlist[-2] in dic_status_codes:
-                    dic_status_codes[statlist[-2]] += 1
+                if statlist[-2] in status:
+                    status[statlist[-2]] += 1
             except:
                 pass
-    print_statistics(dic_status_codes, size)
+    print_statistics(status, size)
 
 
 except KeyboardInterrupt:
-    print_statistics(dic_status_codes, size)
+    print_statistics(status, size)
     raise
