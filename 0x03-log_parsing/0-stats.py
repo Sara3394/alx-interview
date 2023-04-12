@@ -13,7 +13,7 @@ def prinstats(dicst, file_size):
             print("{}: {:d}".format(i, dicst[i]))
 
 
-stats = {"200": 0, 
+stats = {"200": 0,
          "301": 0, 
          "400": 0,
          "401": 0, 
