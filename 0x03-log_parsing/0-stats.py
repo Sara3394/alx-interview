@@ -46,7 +46,7 @@ try:
                     stas[statlist[-2]] += 1
             except:
                 pass
-    print_statistics(stas, size)
+        print_statistics(stas, size)
 
 
 except KeyboardInterrupt:
