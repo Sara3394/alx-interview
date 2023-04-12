@@ -31,10 +31,10 @@ try:
             prinstats(stats, file_size)
 
         statlist = line.split()
-        count += 1
+        cnt += 1
 
         try:
-            size += int(statlist[-1])
+            file_size += int(statlist[-1])
         except:
             pass
 
