@@ -30,7 +30,7 @@ dic_status_codes = {"200": 0,
 
 try:
     for line in sys.stdin:
-        if cnt != 0 and count % 10 == 0:
+        if cnt != 0 and cnt % 10 == 0:
             print_statistics(dic_status_codes, size)
 
             statlist = line.split()
