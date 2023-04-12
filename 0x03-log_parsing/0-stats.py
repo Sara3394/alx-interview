@@ -5,7 +5,7 @@
 import sys
 
 
-def print_statistics(dicsc, size):
+def printstas(dicsc, size):
     """ 
     a function that takes two arguments 
     """
@@ -31,7 +31,7 @@ stas = {"200": 0,
 try:
     for line in sys.stdin:
         if cnt != 0 and cnt % 10 == 0:
-            print_statistics(stas, size)
+            print_stas(stas, size)
 
             statlist = line.split()
             cnt += 1
@@ -46,9 +46,9 @@ try:
                     stas[statlist[-2]] += 1
             except:
                 pass
-        print_statistics(stas, size)
+        print_stas(stas, size)
 
 
 except KeyboardInterrupt:
-    print_statistics(stas, size)
+    print_stas(stas, size)
     raise
