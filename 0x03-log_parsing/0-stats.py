@@ -10,10 +10,10 @@ def print_statistics(dicsc, size):
     a function that takes two arguments 
     """
     
-    print("File size: {}".format(size))
+    print("File size: {:d}".format(size))
     for i in sorted(dicsc.keys()):
         if dicsc[i] != 0:
-            print("{}: {}".format(i, dicsc[i]))
+            print("{}: {:d}".format(i, dicsc[i]))
 
 
 size = 0
