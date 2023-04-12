@@ -5,50 +5,47 @@
 import sys
 
 
-def printstas(dicsc, size):
-    """ 
-    a function that takes two arguments 
-    """
-    
-    print("File size: {:d}".format(size))
-    for i in sorted(dicsc.keys()):
-        if dicsc[i] != 0:
-            print("{}: {:d}".format(i, dicsc[i]))
+def prinstats(dicst, file_size):
+    """ reads from stdin & prints status """
+    print("File size: {:d}".format(file_size))
+    for i in sorted(dicst.keys()):
+        if dicst[i] != 0:
+            print("{}: {:d}".format(i, dicst[i]))
 
 
-size = 0
+stats = {"200": 0, 
+         "301": 0, 
+         "400": 0, 
+         "401": 0, 
+         "403": 0,
+         "404": 0, 
+         "405": 0, 
+         "500": 0}
+
 cnt = 0
-stas = {"200": 0,
-        "301": 0, 
-        "400": 0, 
-        "401": 0, 
-        "403": 0,
-        "404": 0, 
-        "405": 0, 
-        "500": 0}
-
+file_size = 0
 
 try:
     for line in sys.stdin:
         if cnt != 0 and cnt % 10 == 0:
-            print_stas(stas, size)
+            prinstats(stats, file_size)
 
-            statlist = line.split()
-            cnt += 1
+        statlist = line.split()
+        count += 1
 
-            try:
-               size += int(statlist[-1])
-            except:
-                pass
-            
-            try:
-                if statlist[-2] in stas:
-                    stas[statlist[-2]] += 1
-            except:
-                pass
-        print_stas(stas, size)
+        try:
+            size += int(statlist[-1])
+        except:
+            pass
+
+        try:
+            if statlist[-2] in stats:
+                stats[statlist[-2]] += 1
+        except:
+            pass
+    prinstats(stats, file_size)
 
 
 except KeyboardInterrupt:
-    print_stas(stas, size)
+    prinstats(stats, file_size)
     raise
