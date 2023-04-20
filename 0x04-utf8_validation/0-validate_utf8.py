@@ -7,7 +7,7 @@ checks and validates UTF-8 encoding
 def validUTF8(data):
 
     number_of_bytes = 0  # number of bytes in the current UTF-8 char
-    # goes into the numbers of the given set
+    
     for numbers in data:
         # prints the 8least sig bits
         number_of_bin = format(numbers, '#010b')[-8:]
