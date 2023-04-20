@@ -5,10 +5,11 @@ checks and validates UTF-8 encoding
 
 
 def validUTF8(data):
+    def bin(numbers):
 
     no_of_bytes = 0
     for numbers in data:
-        bits_per_byte_block = bin(numbers).replace("0b","")
+        bits_per_byte_block = bin().replace("0b","")
         if no_of_bytes == 0:
 
             for bit in bits_per_byte_block:
