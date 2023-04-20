@@ -10,9 +10,8 @@ def validUTF8(data):
     for numbers in data:
         # prints the 8least sig bits
         number_of_bin = format(numbers, '#010b')[-8:]
-        if number_of_bytes == 0:  # start processing a new UTF-8 char
+        if number_of_bytes == 0:
 
-            # Get the number of 1s in the beginning of the string.
             for bit in number_of_bin:
                 if bit == '0':
                     break
