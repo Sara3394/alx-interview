@@ -1,38 +1,40 @@
 #!/usr/bin/python3
 """
-Checks and validates UTF-8 encoding
-
+checks and validates UTF-8 encoding
 """
-
-def decimalToBinary(no):
-    #converting decimal to binary
-    return bin(no).replace("0b", "")
 
 
 def validUTF8(data):
 
-    no_of_bytes = 0 
-    
-    for no in data:
-        # the least significant bits of the last block
-        bits_per_byte = decimalToBinary(no)
-        if no_of_bytes == 0:
+    number_of_bytes = 0  # number of bytes in the current UTF-8 char
+    # goes into the numbers of the given set
+    for numbers in data:
+        # prints the 8least sig bits
+        number_of_bin = format(numbers, '#010b')[-8:]
+        if number_of_bytes == 0:  # start processing a new UTF-8 char
 
-            for bit in bits_per_byte:
+            # Get the number of 1s in the beginning of the string.
+            for bit in number_of_bin:
                 if bit == '0':
                     break
-                no_of_bytes += 1
+                number_of_bytes += 1
 
-            if no_of_bytes == 0:
+            if number_of_bytes == 0:  # 1 byte characters
                 continue
 
-            if no_of_bytes == 1 or no_of_bytes > 4:
+            # A character in UTF-8 can be 1 to 4 bytes long
+            if number_of_bytes == 1 or number_of_bytes > 4:
                 return False
         else:
 
-            if not bit_per_byte.startswith('10'):
+            # Bytes which are a part of
+            # a UTF-8 character must adhere
+            # to the pattern `10xxxxxx`.
+            if not number_of_bin.startswith('10'):
                 return False
 
-        no_of_bytes -= 1
+        # We reduce the number of bytes
+        # to process by 1 after each integer.
+        number_of_bytes -= 1
 
-    return no_of_bytes == 0
+    return number_of_bytes == 0
