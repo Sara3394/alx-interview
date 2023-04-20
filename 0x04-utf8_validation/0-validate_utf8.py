@@ -5,7 +5,7 @@ checks and validates UTF-8 encoding
 
 
 def validUTF8(data):
-    def bin(numbers):
+def bin(numbers):
 
     no_of_bytes = 0
     for numbers in data:
