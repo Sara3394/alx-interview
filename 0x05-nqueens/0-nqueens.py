@@ -43,23 +43,23 @@ def approve_placment(chessboard, row, col, N):
     return True
 
 
-def Soln(chessboard, col, N):
+def soln(chessboard, col, N):
 
 
     if col == N:
-        Position_of_queens(chessboard)
+        position_of_queens(chessboard)
         return True
 
     F = False
     for i in range(N):
         if approve_placment(chessboard, i, col, N):
             chessboard[i][col] = 1
-            F = Soln(chessboard, col + 1, N) or F
+            F = soln(chessboard, col + 1, N) or F
             chessboard[i][col] = 0
     return F
 
 
-def Position_of_queens(chessboard):
+def position_of_queens(chessboard):
 
 
     positions = []
@@ -71,4 +71,4 @@ def Position_of_queens(chessboard):
 
 
 chessboard = [[0 for i in range(N)] for j in range(N)]
-Soln(chessboard, 0, N)
+soln(chessboard, 0, N)
