@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-N Queen Puzzle Solver
+N ueen Puzzle Solver
 
 '''
 
@@ -18,12 +18,13 @@ if __name__ == "__main__":
         print("N must be a number")
         sys.exit(1)
 
-    if int(sys.argv[1]) < 4:
+    N = int(sys.argv[1])
+    if N < 4:
         print("N must be at least 4")
         sys.exit(1)
 
 
-def approve_placment(chessboard, row, col, Q): 
+def approve_placment(chessboard, row, col, N): 
 
     for i in range(col):
         if chessboard[row][i] == 1:
@@ -34,7 +35,7 @@ def approve_placment(chessboard, row, col, Q):
         if chessboard[i][j] == 1:
             return False
 
-    for i, j in zip(range(row, Q, 1),
+    for i, j in zip(range(row, N, 1),
                     range(col, -1, -1)):
         if chessboard[i][j] == 1:
             return False
@@ -42,19 +43,20 @@ def approve_placment(chessboard, row, col, Q):
     return True
 
 
-def Soln(chessboard, col, Q):
+def Soln(chessboard, col, N):
 
 
-    if col == Q:
+    if col == N:
         Position_of_queens(chessboard)
         return True
 
-    for i in range(Q):
-        if approve_placment(chessboard, i, col, Q):
+    F = False
+    for i in range(N):
+        if approve_placment(chessboard, i, col, N):
             chessboard[i][col] = 1
-            False = Soln(chessboard, col + 1, Q) or False
+            F = Soln(chessboard, col + 1, N) or F
             chessboard[i][col] = 0
-    return False
+    return F
 
 
 def Position_of_queens(chessboard):
@@ -68,5 +70,5 @@ def Position_of_queens(chessboard):
     print(positions)
 
 
-chessboard = [[0 for i in range(Q)] for j in range(Q)]
-Soln(chessboard, 0, Q)
+chessboard = [[0 for i in range(N)] for j in range(N)]
+Soln(chessboard, 0, N)
