@@ -23,8 +23,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
 
-def approve_placment(chessboard, row, col, N): 
-
+def approve_placment(chessboard, row, col, N):
+    
     for i in range(col):
         if chessboard[row][i] == 1:
             return False
@@ -43,7 +43,6 @@ def approve_placment(chessboard, row, col, N):
 
 
 def soln(chessboard, col, N):
-
 
     if col == N:
         position_of_queens(chessboard)
