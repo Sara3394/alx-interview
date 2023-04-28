@@ -24,7 +24,6 @@ if __name__ == "__main__":
 
 
 def approve_placment(chessboard, row, col, N):
-    
     for i in range(col):
         if chessboard[row][i] == 1:
             return False
@@ -58,7 +57,6 @@ def soln(chessboard, col, N):
 
 
 def position_of_queens(chessboard):
-
 
     positions = []
     for i in range(len(chessboard)):
