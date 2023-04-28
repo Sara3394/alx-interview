@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-'''
-N ueen Puzzle Solver
-
-'''
+"""
+NQueens puzzle solver
+"""
 
 
 import sys
