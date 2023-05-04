@@ -1,6 +1,5 @@
 #!/usr/bin/node
 
-const { ServerResponse } = require('http');
 const request = require('request');
 const movies = process.argv[2];
 
