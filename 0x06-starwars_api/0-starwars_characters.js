@@ -6,21 +6,17 @@ const request = require('request');
 
 const movie = process.argv[2];
 
-const url = `https://swapi-api.hbtn.io/api/films/${movie}`;
-
-request(url, async (err, res, body) => {
-  if (err) {
-    console.log(err);
-  }
+request.get(`https://swapi-api.hbtn.io/api/films/${movie}/`, async (err, res, body) => {
   for (const character of JSON.parse(body).characters) {
-    await new Promise((resolve, reject) => {
+    const ppl = await new Promise((resolve, reject) => {
       request(character, (err, res, body) => {
         if (err) {
           reject(err);
+        } else {
+          resolve(JSON.parse(body).name);
         }
-        console.log(JSON.parse(body).name);
-        resolve();
       });
     });
+    console.log(ppl);
   }
 });
