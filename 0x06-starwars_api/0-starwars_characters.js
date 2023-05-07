@@ -5,9 +5,6 @@
 const request = require('request');
 
 request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async function (error, response, body) {
-  if (error) {
-    console.error(error);
-  }
   const actors = JSON.parse(body).characters;
   for (const character of actors) {
     await new Promise((resolve, reject) => {
