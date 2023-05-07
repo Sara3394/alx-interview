@@ -4,7 +4,7 @@
 const request = require('request');
 
 request('https://swapi-api.alx-tools.com/api/films/' + id, async function (error, res, body) {
-  if (error) throw error;
+  
   const actors = JSON.parse(body).characters;
   for (const character of actors) {
     await new Promise((resolve, reject) => {
