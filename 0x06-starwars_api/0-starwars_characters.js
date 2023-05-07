@@ -1,10 +1,9 @@
 #!/usr/bin/node
 
 const request = require('request');
-const movies = process.argv[2];
 
-request('https://swapi-api.alx-tools.com/api/films/' + id, async function (error, response, body) {
-  
+request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async function (error, response, body) {
+  if (error) throw error;
   const actors = JSON.parse(body).characters;
   for (const character of actors) {
     await new Promise((resolve, reject) => {
