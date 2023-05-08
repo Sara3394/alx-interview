@@ -4,12 +4,10 @@
 
 const request = require('request');
 
-request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async function (error, response, body) {
-  if (error) {
-    console.error(error);
-  }
-  const actors = JSON.parse(body).characters;
-  for (const character of actors) {
+request('https://swapi-api.alx-tools.com/api/films/' + id, async function (error, response, body) {
+  try {
+  const data = JSON.parse(body).characters;
+  for (const character of data) {
     await new Promise((resolve, reject) => {
       request(character, (error, response, body) => {
         if (error) {
@@ -20,4 +18,7 @@ request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async function
       });
     });
   }
+}catch (error) {
+  console.error(error);
+}
 });
