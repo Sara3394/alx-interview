@@ -4,8 +4,7 @@
 
 const request = require('request');
 
-request('https://swapi-api.alx-tools.com/api/films/' + id, async function (error, response, body) {
-  try {
+request('https://swapi-api.alx-tools.com/api/films/' + process.argv[2], async function (error, response, body) {
   const data = JSON.parse(body).characters;
   for (const character of data) {
     await new Promise((resolve, reject) => {
@@ -14,6 +13,5 @@ request('https://swapi-api.alx-tools.com/api/films/' + id, async function (error
         resolve();
       });
     });
-  }
-}.catch(alert);
+  }.catch(alert);
 });
