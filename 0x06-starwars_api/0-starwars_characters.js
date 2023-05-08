@@ -10,7 +10,6 @@ request('https://swapi-api.alx-tools.com/api/films/' + process.argv[2], async fu
     await new Promise((resolve, reject) => {
       request(character, (error, response, body) => {
         console.log(JSON.parse(body).name);
-        resolve();
       });
     });
   }.catch(alert);
