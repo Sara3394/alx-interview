@@ -10,9 +10,6 @@ request('https://swapi-api.alx-tools.com/api/films/' + id, async function (error
   for (const character of data) {
     await new Promise((resolve, reject) => {
       request(character, (error, response, body) => {
-        if (error) {
-          console.log(error);
-        }
         console.log(JSON.parse(body).name);
         resolve();
       });
