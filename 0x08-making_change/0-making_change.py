@@ -6,17 +6,18 @@ this script finds the minimum number of coins
 needed to meet a given amount total.
 """
 
+
 def makeChange(coins, total):
-    """ Returns: fewest number of coins needed """
-    
-    
+
+    """Returns a fewest no of coins needed"""
+
     if total <= 0:
         return 0
     if len(coins) <= 0:
         return -1
     coins_needed = 0
     coins.sort()
-    coins.reverse()   
+    coins.reverse()
     for coin in coins:
         while coin <= total:
             total -= coin
