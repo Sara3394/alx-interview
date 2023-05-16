@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 """
-
 given a pile of coins of different values
 this script finds the minimum number of coins
 needed to meet a given amount total.
