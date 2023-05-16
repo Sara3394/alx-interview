@@ -16,6 +16,7 @@ def makeChange(coins, total):
     coinsNeeded = 0
     coins.sort()
     coins.reverse()
+    
     for coin in coins:
         while coin <= total:
             total -= coin
