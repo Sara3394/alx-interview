@@ -14,14 +14,14 @@ def makeChange(coins, total):
     if len(coins) <= 0:
         return -1
     
-    coinsNeeded = 0
+    coins_needed = 0
     coins.sort()
     coins.reverse()
     
     for coin in coins:
         while coin <= total:
             total -= coin
-            coinsNeeded += 1
+            coins_needed += 1
         if (total == 0):
-            return coinsNeeded
+            return coins_needed
     return -1
