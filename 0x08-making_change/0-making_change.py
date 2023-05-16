@@ -12,6 +12,7 @@ def makeChange(coins, total):
         return 0
     if len(coins) <= 0:
         return -1
+    
     coinsNeeded = 0
     coins.sort()
     coins.reverse()
