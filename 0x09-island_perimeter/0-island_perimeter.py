@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-
 """
-Island Perimeter
+Island Perimeter:
+
 """
 
 
 def island_perimeter(grid):
-
     """
     Calculates the Perimeter of the Island
     Return:
@@ -21,4 +20,4 @@ def island_perimeter(grid):
                     p -= 2
                 if j > 0 and grid[i][j-1] == 1:
                     p -= 2
-                    return p
+    return p
